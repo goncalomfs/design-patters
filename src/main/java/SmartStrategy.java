@@ -5,7 +5,11 @@ public class SmartStrategy implements OrderingStrategy {
     private List<DrinkOrder> drinkOrders = new ArrayList<>();
 
     public void wants(StringDrink drink, StringRecipe recipe, StringBar bar) {
-        drinkOrders.add(new DrinkOrder(drink, recipe));
+        if (bar.isHappyHour()) {
+            recipe.mix(drink);
+        } else {
+            drinkOrders.add(new DrinkOrder(drink, recipe));
+        }
     }
 
     public void happyHourStarted(StringBar bar) {
