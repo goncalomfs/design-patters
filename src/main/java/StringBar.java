@@ -1,6 +1,10 @@
 public class StringBar extends Bar {
     boolean HappyHour;
 
+    public StringBar() {
+        this.HappyHour = false;
+    }
+
     @Override
      public boolean isHappyHour(){
         return HappyHour;
@@ -16,5 +20,9 @@ public class StringBar extends Bar {
     public void endHappyHour() {
         this.HappyHour = false;
         notifyObservers();
+    }
+
+    public void order(StringDrink drink, StringRecipe recipe) {
+        recipe.mix(drink);
     }
 }
